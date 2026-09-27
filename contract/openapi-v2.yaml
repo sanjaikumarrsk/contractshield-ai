@@ -1,0 +1,74 @@
+openapi: "3.0.3"
+info:
+  title: User Management API
+  description: |
+    CONTRACT v2 — migration target.
+    
+    Breaking changes from v1:
+      - Endpoint: /api/v1/users/{id}  →  /api/v2/users/{id}
+      - Field:    userId              →  id
+    
+    ContractShield detects this migration and coordinates repair across
+    all affected backend, frontend, and test artifacts.
+  version: "2.0.0"
+  contact:
+    name: ContractShield AI
+
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+
+paths:
+  /api/v2/users/{id}:
+    get:
+      operationId: getUserV2
+      summary: Get a user by ID (v2)
+      description: Returns a user object. Response field is "id" (was "userId" in v1).
+      tags:
+        - users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique numeric user identifier
+          schema:
+            type: integer
+            format: int64
+            example: 101
+      responses:
+        "200":
+          description: User found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserV2"
+              example:
+                id: 101
+                name: "RSK"
+                email: "rsk@example.com"
+        "404":
+          description: User not found
+
+components:
+  schemas:
+    UserV2:
+      type: object
+      required:
+        - id
+        - name
+        - email
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Unique user identifier (v2 field name — was "userId" in v1)
+          example: 101
+        name:
+          type: string
+          description: Full name of the user
+          example: "RSK"
+        email:
+          type: string
+          format: email
+          description: User email address
+          example: "rsk@example.com"

@@ -1,0 +1,72 @@
+openapi: "3.0.3"
+info:
+  title: User Management API
+  description: |
+    Demo User Management API for ContractShield AI.
+    
+    CONTRACT v1 — initial version.
+    Breaking migration to v2 is the core ContractShield demonstration scenario:
+      - Endpoint: /api/v1/users/{id}  →  /api/v2/users/{id}
+      - Field:    userId              →  id
+  version: "1.0.0"
+  contact:
+    name: ContractShield AI
+
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+
+paths:
+  /api/v1/users/{id}:
+    get:
+      operationId: getUserV1
+      summary: Get a user by ID (v1)
+      description: Returns a user object. Response field is "userId".
+      tags:
+        - users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique numeric user identifier
+          schema:
+            type: integer
+            format: int64
+            example: 101
+      responses:
+        "200":
+          description: User found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserV1"
+              example:
+                userId: 101
+                name: "RSK"
+                email: "rsk@example.com"
+        "404":
+          description: User not found
+
+components:
+  schemas:
+    UserV1:
+      type: object
+      required:
+        - userId
+        - name
+        - email
+      properties:
+        userId:
+          type: integer
+          format: int64
+          description: Unique user identifier (v1 field name)
+          example: 101
+        name:
+          type: string
+          description: Full name of the user
+          example: "RSK"
+        email:
+          type: string
+          format: email
+          description: User email address
+          example: "rsk@example.com"

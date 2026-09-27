@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>ContractShield</title>
+  <path d="M32 4 54 12v17c0 14-9 25-22 31C19 54 10 43 10 29V12L32 4Z" fill="#0f62fe"/>
+  <path d="m21 31 7 7 15-16" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+</svg>

@@ -1,0 +1,128 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0 24px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-width: 0;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 32px;
+  flex-shrink: 0;
+}
+
+.navbar__logo {
+  color: var(--accent);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.navbar__name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.navbar__tag {
+  background: var(--accent);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+}
+
+.navbar__links {
+  display: flex;
+  list-style: none;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.navbar__link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.12s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navbar__link:hover {
+  color: var(--text-primary);
+  background: var(--bg-card);
+  text-decoration: none;
+}
+
+.navbar__link--active {
+  color: var(--accent-hover);
+  background: #edf4ff;
+}
+
+.navbar__icon {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.navbar__phase {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  margin-left: auto;
+}
+
+.navbar__phase-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 12px 0;
+    min-height: 64px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .navbar__brand {
+    margin-right: auto;
+  }
+
+  .navbar__links {
+    order: 3;
+    flex-basis: 100%;
+    padding-bottom: 8px;
+  }
+
+  .navbar__phase {
+    margin-left: 0;
+  }
+}

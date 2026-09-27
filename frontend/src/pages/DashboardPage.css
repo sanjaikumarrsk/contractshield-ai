@@ -1,0 +1,176 @@
+.dashboard { display: flex; flex-direction: column; gap: 40px; }
+
+.dashboard__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 48px 24px;
+  text-align: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.dashboard__shield-icon {
+  font-size: 48px;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.dashboard__title {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.dashboard__ai {
+  color: var(--accent);
+}
+
+.dashboard__tagline {
+  font-size: 16px;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.dashboard__cta {
+  margin-top: 12px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.dashboard__workflow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+.dashboard__workflow-step--active { color: var(--accent); }
+.dashboard__workflow-arrow { color: var(--border); font-size: 18px; }
+
+.dashboard__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.dashboard__stat { text-align: center; }
+
+.dashboard__stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.dashboard__stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dashboard__stat-value--critical { color: var(--critical); }
+.dashboard__stat-value--warn { color: var(--warning); }
+.dashboard__stat-value--gap { color: var(--purple); }
+.dashboard__stat-value--muted { font-size: 14px; color: var(--text-muted); }
+
+.dashboard__stat-sub {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: 'SFMono-Regular', monospace;
+}
+
+.dashboard__section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.dashboard__compare-grid {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.dashboard__compare-arrow {
+  font-size: 24px;
+  color: var(--accent);
+  padding-top: 80px;
+  flex-shrink: 0;
+}
+
+.dashboard__compare-card { flex: 1; }
+
+.dashboard__compare-heading {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+  color: var(--text-muted);
+}
+
+.dashboard__compare-card--after .dashboard__compare-heading {
+  color: var(--accent-hover);
+}
+
+.dashboard__compare-steps {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.dashboard__compare-steps--after { padding-left: 0; list-style: none; }
+.dashboard__compare-steps--after li { padding: 6px 12px; border-radius: var(--radius); font-weight: 500; }
+.step-simulate { background: rgba(56,139,253,0.1); color: var(--accent-hover); }
+.step-impact   { background: rgba(188,140,255,0.1); color: var(--purple); }
+.step-approve  { background: rgba(210,153,34,0.1); color: var(--warning); }
+.step-repair   { background: rgba(63,185,80,0.1); color: var(--success); }
+.step-validate { background: rgba(63,185,80,0.15); color: var(--success); }
+
+.dashboard__supported-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.dashboard__supported-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.dashboard__supported-item--no { opacity: 0.6; }
+
+.dashboard__supported-desc {
+  color: var(--text-muted);
+  font-size: 11px;
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .dashboard__workflow { flex-wrap: wrap; gap: 8px; }
+  .dashboard__compare-grid { flex-direction: column; }
+  .dashboard__compare-arrow { padding-top: 0; transform: rotate(90deg); align-self: center; }
+}
